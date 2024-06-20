@@ -91,6 +91,11 @@ map({ "n", "v" }, "<leader>cf", function()
   LazyVim.format({ force = true })
 end, { desc = "Format" })
 
+-- lsp stuffs
+map("n", "<leader>a", function()
+  vim.lsp.buf.code_action()
+end, { desc = "Show Code Actions" })
+
 -- diagnostic
 local diagnostic_goto = function(next, severity)
   local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
@@ -171,3 +176,5 @@ end, { desc = "Add snakecase DB Tags" })
 map("n", "<leader>Gtdds", function()
   require("gomodifytags").GoRemoveTags("db", { transformation = "snakecase", skip_unexported = false })
 end, { desc = "Add snakecase DB Tags" })
+
+map("n", "<leader>e", "<cmd>Oil --float<CR>", { desc = "File Explorer" })
