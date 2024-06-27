@@ -7,6 +7,14 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
+      -- NOTE: ccls config
+      ccls = {
+        init_options = {
+          onOpen = 0,
+          onChange = 1,
+          onSave = 0,
+        },
+      },
 
       -- NOTE: gleam configs!
       gleam = {},
@@ -74,6 +82,11 @@ return {
 
       -- NOTE: gleam lsp startup !
       gleam = function(_, _)
+        set_diagnostic_options()
+      end,
+
+      -- NOTE: ccls
+      ccls = function(_, _)
         set_diagnostic_options()
       end,
     },

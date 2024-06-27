@@ -10,6 +10,7 @@ return {
       "gopls",
       "goimports",
       "gofumpt",
+      "nextls",
     },
   },
 }
