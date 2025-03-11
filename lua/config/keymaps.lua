@@ -32,7 +32,6 @@ map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-map("n", "<leader>bd", LazyVim.ui.bufremove, { desc = "Delete Buffer" })
 map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
 -- Clear search with <esc>
@@ -118,20 +117,6 @@ if vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint then
     LazyVim.toggle.inlay_hints()
   end, { desc = "Toggle Inlay Hints" })
 end
-
--- lazygit
-map("n", "<leader>Gg", function()
-  LazyVim.lazygit({ cwd = LazyVim.root.git() })
-end, { desc = "Lazygit (Root Dir)" })
-map("n", "<leader>GG", function()
-  LazyVim.lazygit()
-end, { desc = "Lazygit (cwd)" })
-map("n", "<leader>Gb", LazyVim.lazygit.blame_line, { desc = "Git Blame Line" })
-
--- LazyVim Changelog
-map("n", "<leader>L", function()
-  LazyVim.news.changelog()
-end, { desc = "LazyVim Changelog" })
 
 -- windows
 map("n", "<leader>ww", "<C-W>p", { desc = "Other Window", remap = true })
