@@ -6,6 +6,11 @@ end
 return {
   "neovim/nvim-lspconfig",
   opts = {
+    inlay_hints = {
+      enabled = false,
+      exclude = {},
+    },
+
     servers = {
       -- NOTE: ccls config
       ccls = {
@@ -28,6 +33,9 @@ return {
         settings = {
           gopls = {
             gofumpt = true,
+            completion = {
+              usePlaceholders = false,
+            },
             codelenses = {
               gc_details = false,
               generate = true,
@@ -50,7 +58,7 @@ return {
               shadow = true,
               useany = true,
             },
-            usePlaceholders = true,
+            usePlaceholders = false,
             completeUnimported = true,
             staticcheck = true,
             directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
