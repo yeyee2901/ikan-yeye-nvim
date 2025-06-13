@@ -9,7 +9,7 @@ return {
       delete_to_trash = false,
       skip_confirm_for_simple_edits = false,
       cleanup_delay_ms = 2000,
-      experimental_watch_for_changes = false, -- BUG: expermintal
+      experimental_watch_for_changes = false, -- BU
       columns = { "icon" },
 
       use_default_keymaps = true,
@@ -83,8 +83,8 @@ return {
 
       float = {
         padding = 2,
-        max_width = 0,
-        max_height = 0,
+        max_width = 67,
+        max_height = 30,
         border = "rounded",
         preview_split = "auto",
         win_options = {
