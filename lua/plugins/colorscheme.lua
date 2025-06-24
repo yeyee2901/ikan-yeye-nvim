@@ -63,19 +63,19 @@ return {
       require("flow").setup({
         theme = {
           style = "dark", --  "dark" | "light"
-          contrast = "default", -- "default" | "high"
+          contrast = "high", -- "default" | "high"
           transparent = true, -- true | false
         },
         colors = {
           mode = "default", -- "default" | "dark" | "light"
-          fluo = "orange", -- "pink" | "cyan" | "yellow" | "orange" | "green"
+          fluo = "green", -- "pink" | "cyan" | "yellow" | "orange" | "green"
           custom = {
-            -- saturation = "", -- "" | string representing an integer between 0 and 100
+            saturation = "65", -- "" | string representing an integer between 0 and 100
             -- light = "", -- "" | string representing an integer between 0 and 100
           },
         },
         ui = {
-          borders = "fluo", -- "theme" | "inverse" | "fluo" | "none"
+          borders = "inverse", -- "theme" | "inverse" | "fluo" | "none"
           aggressive_spell = false, -- true | false
         },
       })
