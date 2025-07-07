@@ -24,6 +24,28 @@ return {
       -- NOTE: gleam configs!
       gleam = {},
 
+      tailwindcss = {
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern(
+            "assets/tailwind.config.ts",
+            "assets/tailwind.config.js",
+            "assets/tailwind.config.cjs",
+            "assets/package.json",
+            ".git"
+          )(fname) or vim.fn.getcwd()
+        end,
+        settings = {
+          tailwindCSS = {
+            -- docs imply it should be html, js or css, but you can also specify
+            -- another "known" language so `heex = "phoenix-heex"` or
+            -- `heex = "HTML (EEx)"` also works. I think they just all get
+            -- treated as "html" by tailwind (effecting if it looks for class="" for completion triggers)
+            -- but could not say for certain.
+            includeLanguages = { heex = "html", elixir = "html" },
+          },
+        },
+      },
+
       -- NOTE: gopls configs !
       gopls = {
         keys = {
@@ -97,6 +119,11 @@ return {
       ccls = function(_, _)
         set_diagnostic_options()
       end,
+
+      -- NOTE: tailwindcss specific setup
+      -- tailwindcss = function()
+      --   set_diagnostic_options()
+      -- end,
     },
   },
 }

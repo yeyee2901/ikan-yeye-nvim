@@ -13,7 +13,8 @@ return {
       "gopls",
       "goimports",
       "gofumpt",
-      "nextls",
+      "elixir-ls",
+      "tailwindcss-language-server",
     },
   },
 }
