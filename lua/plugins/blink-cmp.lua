@@ -64,7 +64,7 @@ return {
       menu = { border = "single" },
       documentation = {
         window = { border = "single" },
-        auto_show = false,
+        auto_show = true,
       },
     },
     signature = {

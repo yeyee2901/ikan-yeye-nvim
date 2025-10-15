@@ -127,7 +127,7 @@ end, { desc = "Add Snakecase JSON Tags" })
 
 map("n", "<leader>Gtdjs", function()
   require("gomodifytags").GoRemoveTags("json", { transformation = "snakecase", skip_unexported = false })
-end, { desc = "Add Snakecase JSON Tags" })
+end, { desc = "Delete Snakecase JSON Tags" })
 
 map("n", "<leader>Gtajc", function()
   require("gomodifytags").GoAddTags("json", { transformation = "camelcase", skip_unexported = false })
@@ -135,7 +135,7 @@ end, { desc = "Add camelcase JSON Tags" })
 
 map("n", "<leader>Gtdjc", function()
   require("gomodifytags").GoRemoveTags("json", { transformation = "camelcase", skip_unexported = false })
-end, { desc = "Add camelcase JSON Tags" })
+end, { desc = "Delete camelcase JSON Tags" })
 
 map("n", "<leader>Gtays", function()
   require("gomodifytags").GoAddTags("yaml", { transformation = "snakecase", skip_unexported = false })
@@ -143,7 +143,7 @@ end, { desc = "Add snakecase YAML Tags" })
 
 map("n", "<leader>Gtdys", function()
   require("gomodifytags").GoRemoveTags("yaml", { transformation = "snakecase", skip_unexported = false })
-end, { desc = "Add snakecase YAML Tags" })
+end, { desc = "Delete snakecase YAML Tags" })
 
 map("n", "<leader>Gtads", function()
   require("gomodifytags").GoAddTags("db", { transformation = "snakecase", skip_unexported = false })
@@ -151,6 +151,14 @@ end, { desc = "Add snakecase DB Tags" })
 
 map("n", "<leader>Gtdds", function()
   require("gomodifytags").GoRemoveTags("db", { transformation = "snakecase", skip_unexported = false })
-end, { desc = "Add snakecase DB Tags" })
+end, { desc = "Remove snakecase DB Tags" })
+
+map("n", "<leader>Gtbas", function()
+  require("gomodifytags").GoAddTags("bson", { transformation = "snakecase", skip_unexported = false })
+end, { desc = "Add snakecase bson Tags" })
+
+map("n", "<leader>Gtbds", function()
+  require("gomodifytags").GoRemoveTags("bson", { transformation = "snakecase", skip_unexported = false })
+end, { desc = "Remove snakecase bson Tags" })
 
 map("n", "<leader>e", "<cmd>Oil --float<CR>", { desc = "File Explorer" })
