@@ -153,11 +153,11 @@ map("n", "<leader>Gtdds", function()
   require("gomodifytags").GoRemoveTags("db", { transformation = "snakecase", skip_unexported = false })
 end, { desc = "Remove snakecase DB Tags" })
 
-map("n", "<leader>Gtbas", function()
+map("n", "<leader>Gtabs", function()
   require("gomodifytags").GoAddTags("bson", { transformation = "snakecase", skip_unexported = false })
 end, { desc = "Add snakecase bson Tags" })
 
-map("n", "<leader>Gtbds", function()
+map("n", "<leader>Gtdbs", function()
   require("gomodifytags").GoRemoveTags("bson", { transformation = "snakecase", skip_unexported = false })
 end, { desc = "Remove snakecase bson Tags" })
 
