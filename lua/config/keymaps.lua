@@ -13,6 +13,8 @@ map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr =
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 
+map({ "i", "v" }, "<C-[>", "<esc>", { desc = "Rebind escape", remap = true })
+
 -- NOTE: Move to window using the <ctrl> hjkl keys
 -- It conflicted with tmux
 map("n", "<C-h>", "", { desc = "Go to Left Window", remap = true })
@@ -70,10 +72,6 @@ map("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg" })
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
--- commenting
-map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
-map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Above" })
-
 -- lazy
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
@@ -120,45 +118,9 @@ map("n", "<leader>w|", "<C-W>v", { desc = "Split Window Right", remap = true })
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 
--- gomodifytags
-map("n", "<leader>Gtajs", function()
-  require("gomodifytags").GoAddTags("json", { transformation = "snakecase", skip_unexported = false })
-end, { desc = "Add Snakecase JSON Tags" })
-
-map("n", "<leader>Gtdjs", function()
-  require("gomodifytags").GoRemoveTags("json", { transformation = "snakecase", skip_unexported = false })
-end, { desc = "Delete Snakecase JSON Tags" })
-
-map("n", "<leader>Gtajc", function()
-  require("gomodifytags").GoAddTags("json", { transformation = "camelcase", skip_unexported = false })
-end, { desc = "Add camelcase JSON Tags" })
-
-map("n", "<leader>Gtdjc", function()
-  require("gomodifytags").GoRemoveTags("json", { transformation = "camelcase", skip_unexported = false })
-end, { desc = "Delete camelcase JSON Tags" })
-
-map("n", "<leader>Gtays", function()
-  require("gomodifytags").GoAddTags("yaml", { transformation = "snakecase", skip_unexported = false })
-end, { desc = "Add snakecase YAML Tags" })
-
-map("n", "<leader>Gtdys", function()
-  require("gomodifytags").GoRemoveTags("yaml", { transformation = "snakecase", skip_unexported = false })
-end, { desc = "Delete snakecase YAML Tags" })
-
-map("n", "<leader>Gtads", function()
-  require("gomodifytags").GoAddTags("db", { transformation = "snakecase", skip_unexported = false })
-end, { desc = "Add snakecase DB Tags" })
-
-map("n", "<leader>Gtdds", function()
-  require("gomodifytags").GoRemoveTags("db", { transformation = "snakecase", skip_unexported = false })
-end, { desc = "Remove snakecase DB Tags" })
-
-map("n", "<leader>Gtabs", function()
-  require("gomodifytags").GoAddTags("bson", { transformation = "snakecase", skip_unexported = false })
-end, { desc = "Add snakecase bson Tags" })
-
-map("n", "<leader>Gtdbs", function()
-  require("gomodifytags").GoRemoveTags("bson", { transformation = "snakecase", skip_unexported = false })
-end, { desc = "Remove snakecase bson Tags" })
-
 map("n", "<leader>e", "<cmd>Oil --float<CR>", { desc = "File Explorer" })
+
+-- Insert mode
+map("i", "<C-k>", function()
+  vim.lsp.buf.signature_help()
+end, { desc = "signature help", remap = true })

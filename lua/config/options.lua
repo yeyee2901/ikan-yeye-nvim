@@ -22,7 +22,7 @@ local my_options = {
   hlsearch = false,
   hidden = true,
   termguicolors = true,
-  cursorline = false,
+  cursorline = true,
   inccommand = "split",
   signcolumn = "yes",
   colorcolumn = "0",
@@ -30,9 +30,17 @@ local my_options = {
   splitright = true,
   laststatus = 3,
   winbar = "%f",
+  foldexpr = vim.treesitter.foldexpr(),
+  foldmethod = "expr",
+  exrc = true,
+  secure = true,
 }
 
 -- set all options
 for option, value in pairs(my_options) do
   vim.opt[option] = value
 end
+
+-- global options
+vim.g.minianimate_disable = true
+vim.g.snacks_animate = false
