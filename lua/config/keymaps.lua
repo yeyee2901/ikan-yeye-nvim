@@ -118,7 +118,10 @@ map("n", "<leader>w|", "<C-W>v", { desc = "Split Window Right", remap = true })
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 
-map("n", "<leader>e", "<cmd>Oil --float<CR>", { desc = "File Explorer" })
+-- map("n", "<leader>e", "<cmd>Oil --float<CR>", { desc = "File Explorer" })
+map("n", "<leader>e", function()
+  require("fyler").toggle({ kind = "float" })
+end, { desc = "File Explorer" })
 
 -- Insert mode
 map("i", "<C-k>", function()
