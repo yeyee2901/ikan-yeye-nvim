@@ -121,3 +121,11 @@ vim.api.nvim_create_autocmd({ "TextChangedI" }, {
   group = augroup("discard"),
   callback = function(_event) end,
 })
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = augroup("env_files"),
+  pattern = ".env*",
+  callback = function(_event)
+    vim.bo.filetype = "text"
+  end,
+})
