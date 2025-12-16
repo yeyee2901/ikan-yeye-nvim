@@ -30,6 +30,8 @@ GOPLS_SETTING = {
         unusedvariable = true,
         shadow = true,
         useany = true,
+        ST1000 = false, -- at least one file in a package should have a package comment
+        ST1003 = false, -- should not use ALL_CAPS in Go names
         S1001 = true, -- appending multiple slices
         S1016 = true, -- casting identical struct
         SA1002 = true, -- invalid format in time.Parse
@@ -56,7 +58,7 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     inlay_hints = {
-      enabled = false,
+      enabled = true,
       exclude = {},
     },
 
@@ -102,20 +104,6 @@ return {
     setup = {
       -- NOTE: gopls lsp startup !
       gopls = function(_, _)
-        LazyVim.lsp.on_attach(function(client, _)
-          if not client.server_capabilities.semanticTokensProvider then
-            local semantic = client.config.capabilities.textDocument.semanticTokens
-            client.server_capabilities.semanticTokensProvider = {
-              full = true,
-              legend = {
-                tokenTypes = semantic.tokenTypes,
-                tokenModifiers = semantic.tokenModifiers,
-              },
-              range = true,
-            }
-          end
-        end, "gopls")
-
         set_diagnostic_options()
       end,
 
