@@ -12,10 +12,11 @@ return {
     opts = {
       adapters = {
         ["neotest-golang"] = {
-          go_test_args = { "-v", "-count=1", "-timeout=60s" },
+          go_test_args = { "-v", "-count=1", "-timeout=60s", "-race" },
           dap_go_enabled = false,
           env = {
             DEV_ENV = "true", -- NOTE: add for my own local machine
+            TEST_ENV = "local", -- NOTE: add for my own local machine
           },
         },
       },

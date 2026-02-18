@@ -1,0 +1,37 @@
+local dashboard_text = [[
+ __    _    _______    _______    _     _    ___             __   __  ___   __   __ 
+|  |  | |  |       |  |   _   |  | | _ | |  |   |           |  | |  ||   | |  |_|  |
+|   |_| |  |    ___|  |  |_|  |  | || || |  |   |           |  |_|  ||   | |       |
+|       |  |   | __   |       |  |       |  |   |           |       ||   | |       |
+|  _    |  |   ||  |  |       |  |       |  |   |    ___    |       ||   | |       |
+| | |   |  |   |_| |  |   _   |  |   _   |  |   |   |   |    |     | |   | | ||_|| |
+|_|  |__|  |_______|  |__| |__|  |__| |__|  |___|   |___|     |___|  |___| |_|   |_|
+]]
+
+-- .config/nvim/lua/plugins/dashboard.lua
+return {
+  "snacks.nvim",
+  opts = {
+    dashboard = {
+      -- dashboard configuration
+      preset = {
+        keys = {
+          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+          -- { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+          -- { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          {
+            icon = " ",
+            key = "c",
+            desc = "Config",
+            action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
+          },
+          -- { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+          -- { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+        },
+        header = dashboard_text,
+      },
+    },
+  },
+}
